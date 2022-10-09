@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Maven Pro';
+    src: url(./fonts/MavenPro-VariableFont_wght.ttf);
+}
+
+canvas{
+    position: fixed;
+    display: block;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    top: 0; 
+    right:0;
+}

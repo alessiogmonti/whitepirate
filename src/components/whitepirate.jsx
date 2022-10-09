@@ -9,6 +9,8 @@ import * as THREE from 'three'
 import { useEffect } from 'react'
 import { Button } from '@chakra-ui/react'
 
+const glowBlue = new THREE.MeshBasicMaterial({ color: new THREE.Color(180, 195, 255), toneMapped: false })
+
 export function Model(props) {
   const { nodes, materials } = useGLTF('/pirate_draco.gltf')
   const bones = ['Head','Neck','Spine2']
@@ -23,31 +25,12 @@ export function Model(props) {
   useEffect( () => getOrigins(),[]);
   console.log(originPositions)
   useFrame( (state) => {
-    // if(state.mouse){
       let rotY = THREE.MathUtils.degToRad(state.mouse.x) * 10
       let rotX = THREE.MathUtils.degToRad(state.mouse.y) * -10
       nodes.Head.rotation.y = THREE.MathUtils.lerp(nodes.Head.rotation.y, rotY, 0.5);
       nodes.Head.rotation.x = THREE.MathUtils.lerp(nodes.Head.rotation.x, rotX, 0.05);
       nodes.Neck.rotation.y = THREE.MathUtils.lerp(nodes.Head.rotation.y, rotY, 0.5);
       nodes.Neck.rotation.x = THREE.MathUtils.lerp(nodes.Head.rotation.x, rotX, 0.05);
-      nodes.Spine2.rotation.y = THREE.MathUtils.lerp(nodes.Spine2.rotation.y, rotY, 0.01);
-      nodes.Spine2.rotation.x = THREE.MathUtils.lerp(nodes.Spine2.rotation.x, rotX, 0.01);
-    // }
-    
-    // if(props.reset) {
-    //   console.log(originPositions.Head)
-    //   nodes.Head.rotation.y += originPositions.Head._y
-    //   nodes.Head.rotation.x = originPositions.Head._x
-
-    //   // nodes.Head.rotation.y = THREE.MathUtils.lerp(nodes.Head.rotation.y, originPositions.Head.y, 0.5);
-    //   // nodes.Head.rotation.x = THREE.MathUtils.lerp(nodes.Head.rotation.x, originPositions.Head.x, 0.05);
-
-    //   // nodes.Neck.rotation.y = THREE.MathUtils.lerp(nodes.Neck.rotation.y, originPositions.Neck.y, 0.5);
-    //   // nodes.Neck.rotation.x = THREE.MathUtils.lerp(nodes.Neck.rotation.x, originPositions.Neck.x, 0.05);
-
-    //   // nodes.Spine2.rotation.y = THREE.MathUtils.lerp(nodes.Spine2.rotation.y, originPositions.Spine2.y, 0.01);
-    //   // nodes.Spine2.rotation.x = THREE.MathUtils.lerp(nodes.Spine2.rotation.x, originPositions.Spine2.x, 0.01);
-    // }
   })
 
   return (
@@ -58,8 +41,8 @@ export function Model(props) {
         <skinnedMesh geometry={nodes.Belt.geometry} material={materials.lambert2SG} skeleton={nodes.Belt.skeleton} />
         <skinnedMesh geometry={nodes.Belt_2.geometry} material={materials.Pirate_Material} skeleton={nodes.Belt_2.skeleton} />
         <skinnedMesh geometry={nodes.Cutlass.geometry} material={materials.Material} skeleton={nodes.Cutlass.skeleton} />
-        <skinnedMesh geometry={nodes.Eye_L.geometry} material={materials.lambert2SG} skeleton={nodes.Eye_L.skeleton} />
-        <skinnedMesh geometry={nodes.Eye_R.geometry} material={materials.lambert2SG} skeleton={nodes.Eye_R.skeleton} />
+        <skinnedMesh geometry={nodes.Eye_L.geometry} material={glowBlue} skeleton={nodes.Eye_L.skeleton} />
+        <skinnedMesh geometry={nodes.Eye_R.geometry} material={glowBlue} skeleton={nodes.Eye_R.skeleton} />
         <skinnedMesh geometry={nodes.Hat.geometry} material={materials.lambert2SG} skeleton={nodes.Hat.skeleton} />
         <skinnedMesh geometry={nodes.Pirate.geometry} material={materials.Material} skeleton={nodes.Pirate.skeleton} />
         <skinnedMesh geometry={nodes.Pistol_1.geometry} material={materials.lambert2SG} skeleton={nodes.Pistol_1.skeleton} />

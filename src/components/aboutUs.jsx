@@ -39,6 +39,9 @@ export const AboutUs = () => (
         icon={<FcCommandLine size={'3em'} />}
         />
     </SimpleGrid>
+    <Box h={'45vh'} w={'100%'} my={20} border={'1px solid'} borderColor={useColorModeValue('gray.800','gray.500')} shadow={'xl'} rounded={'lg'}>
+
+    </Box>
     </Box>
 );
 

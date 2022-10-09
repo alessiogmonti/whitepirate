@@ -34,15 +34,16 @@ import { ProductDetails } from './productDetails';
             <PopoverTrigger>
                 <ButtonGroup isAttached>
                     <Button
-                    fontSize={'20px'}
+                    fontSize={'30px'}
                     color="black"
-                    bg={'white'}
+                    bg={'green.200'}
                     borderWidth={'1px'}
-                    borderColor={'green.200'}
-                    w="fit-content">
+                    borderColor={'blue.300'}
+                    w="fit-content"
+                    fontWeight={'medium'}>
                     request a security audit
                     </Button>
-                    <IconButton icon={<FcInspection size={'25px'}/>} />
+                    <IconButton icon={<FcInspection size={'35px'}/>} />
                 </ButtonGroup>
             </PopoverTrigger>
             <PopoverContent _focus={{ boxShadow: 'none' }} w={'45vw'} ml={5}>

@@ -27,7 +27,7 @@ let data= {
     }
 
 export const ServicesTimeline = () => (
-    <Box height={'80vh'} width={'90%'} m={10} padding={10} background={'whiteAlpha.200'} overflow={'scroll'} zIndex={50}>
+    <Box height={'90%'} width={'90%'} m={10} padding={10} background={'whiteAlpha.200'} overflow={'scroll'} zIndex={50}>
     <Timeline mode="alternate" pending={<TimelineCard {...data.contact} />} reverse={true}  >
         <Timeline.Item
         dot={

@@ -2,6 +2,9 @@
     font-family: 'Maven Pro';
     src: url(./fonts/MavenPro-VariableFont_wght.ttf);
 }
+body{
+    /* background-image: url("seacastle.jpg"); */
+}
 
 canvas{
     position: fixed;

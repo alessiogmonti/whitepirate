@@ -2,7 +2,7 @@ import Hero from "../components/hero";
 import { motion } from "framer-motion";
 import { BackButton } from "../components/backButton";
 import { Container } from "../components/container";
-import { AboutUs } from "../components/aboutus";
+import { AboutUs } from "../components/aboutUs";
 
 const data = [ {first:"About"} ]
 

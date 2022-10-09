@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { Button } from '@chakra-ui/react'
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/whitepirate.glb')
+  const { nodes, materials } = useGLTF('https://whitepirate-bucket.s3.amazonaws.com/pirate_draco.gltf')
   const bones = ['Head','Neck','Spine2']
   let originPositions = []
   function getOrigins(){
@@ -127,4 +127,4 @@ function getMouseDegrees(x, y, degreeLimit) {
   return { x: dx, y: dy };
 }
 
-useGLTF.preload('/whitepirate.glb')
+useGLTF.preload('https://whitepirate-bucket.s3.amazonaws.com/pirate_draco.gltf')
